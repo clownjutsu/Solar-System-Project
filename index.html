@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<head>
+    <title>Solar System</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center
+                ;
+            background-color: black
+                ;
+            overflow: hidden;
+            background-image: url("stars.jpg")
+        }
+        .container {
+            font-size: 6px;
+            width: 40em;
+            height: 40em;
+            position: relative;
+        }
+        .sun{
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+            background-color:
+                yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 3em
+                rgb(200, 177, 177);
+        }
+        .earth,.moon,.mars,.mercury,.venus,.jupiter,.saturn,.saturn2,.saturn3,.uranus,.pluto,.shootingstar {
+            position: absolute;
+            border-style: solid;
+            border-color: white
+                transparent
+                transparent
+                transparent;
+            border-width: 0.1em 0.1em
+                 0 0;
+            border-radius: 50%
+        }
+        .earth {
+            top: -1em;
+            right: -1em;
+            width: 40em;
+            height: 40em;
+            animation: orbit 20.5s
+            
+                linear infinite;
+        }
+        .moon {
+            top: 3em;
+            right: 0.6em;
+            width: 8em;
+            height: 8em;
+            animation: orbit 2.7s
+                linear infinite;
+        }
+        .mars {
+            top: -8em;
+            left: -8em;
+            width: 58em;
+            height: 58em;
+            animation: orbit 40s
+            
+                linear infinite;
+        }
+        .mercury {
+            top: 11em;
+            left: 11em;
+            width: 18em;
+            height: 18em;
+            animation: orbit 3s
+            
+                linear infinite;
+        }
+        .venus {
+            top: 8em;
+            left: 8em;
+            width: 24em;
+            height: 24em;
+            animation: orbit 10.5s
+            
+                linear infinite;
+        }
+        .jupiter {
+            top: -18em;
+            left: -18em;
+            width: 78em;
+            height: 78em;
+            animation: orbit 80s
+            
+                linear infinite;
+        }
+        .saturn {
+            top: -28em;
+            left: -28em;
+            width: 98em;
+            height: 98em;
+            animation: orbit 120s
+            
+                linear infinite;
+        }
+        .saturn2 {
+            top: -28em;
+            left: -28em;
+            width: 98em;
+            height: 98em;
+            animation: orbit 120s
+            
+                linear infinite;
+        }
+        .saturn3 {
+            top: -28em;
+            left: -28em;
+            width: 98em;
+            height: 98em;
+            animation: orbit 120s
+            
+                linear infinite;
+        }
+        .uranus {
+            top: -38em;
+            left: -38em;
+            width: 118em;
+            height: 118em;
+            animation: orbit 180s
+            
+                linear infinite;
+        }
+        .pluto {
+            top: -48em;
+            left: -48em;
+            width: 138em;
+            height: 138em;
+            animation: orbit 250s
+            
+                linear infinite;
+        }
+        .shootingstar {
+            top: -10em;
+            left: -20000em;
+            width: 10em;
+            height: 1em;
+            animation: shoot 20s
+            
+                linear infinite;
+        }
+        .earth::before,
+        .moon::before,
+        .mars::before,
+        .mercury::before,
+        .venus::before,
+        .jupiter::before,
+        .saturn::before,
+        .saturn2::before,
+        .saturn3::before,
+        .uranus::before,
+        .pluto::before,
+        .shootingstar::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .earth::before {
+            top: 5.5em;
+            right: 3.4em;
+            width: 3em;
+            height: 3em;
+            background-color: aqua;
+        }
+        .moon::before {
+            top: .6em;
+            right: .3em;
+            width: 1.2em;
+            height: 1.2em;
+            background-color:silver;
+        }
+        .mars::before{
+            top: 8em;
+            right: 7em;
+            width: 2em;
+            height: 2em;
+            background-color: red;
+        }
+        .mercury::before{
+            top: 2em;
+            right: 2em;
+            width: 1.5em;
+            height: 1.5em;
+            background-color: rgb(83, 53, 45);
+        }
+        .venus::before{
+            top: 3em;
+            right: 2.4em;
+            width: 1.5em;
+            height: 1.5em;
+            background-color: rgb(213, 162, 7);
+        }
+        .jupiter::before{
+            top: 7em;
+            right: 10em;
+            width: 6em;
+            height: 6em;
+            background-color: rgb(213, 162, 7);
+        }
+        .saturn::before{
+            top: 12em;
+            right: 12em;
+            width: 5em;
+            height: 5em;
+            background-color: rgba(201, 175, 96, 0.627);
+        }
+        .saturn2::before{
+            top: 12.5em;
+            right:12.5em;
+            width: 4em;
+            height: 4em;
+            background-color: rgb(0, 0, 0);
+        }
+        .saturn3::before{
+            top: 12.6em;
+            right:12.7em;
+            width: 3.7em;
+            height: 3.7em;
+            background-color: rgb(277, 192, 89);
+        }
+        .uranus::before{
+            top: 16em;
+            right:15em;
+            width: 3.7em;
+            height: 3.7em;
+            background-color: rgb(58, 126, 210);
+        }
+        .pluto::before{
+            top: 19.5em;
+            right:19em;
+            width: 2em;
+            height: 2em;
+            background-color: rgb(2, 49, 106);
+        }
+        @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes shoot{
+            to{
+
+                transform: translate(200000px, 100px)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+        <div class="mars"></div>
+        <div class="mercury"></div>
+        <div class="venus"></div>
+        <div class="jupiter"></div>
+        <div class="saturn"></div>
+        <div class="saturn2"></div>
+        <div class="saturn3"></div>
+        <div class="uranus"></div>
+        <div class="pluto"></div>
+        <div class="shootingstar"></div>
+    </div>
+    
+</body>
+</html>
